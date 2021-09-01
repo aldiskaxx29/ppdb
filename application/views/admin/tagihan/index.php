@@ -45,6 +45,7 @@
                                           <td>Rp. <?= number_format($item->jumlah_tagihan, 0, ',', '.') ?></td>
                                           <td>
                                               <button class="btn btn-danger btn-sm" onclick="return confirm('Yakin Mau Di Hapus') ? window.location.href = '<?= site_url('admin/tagihan/delete/' . $item->id) ?>' : ''"><i class="fas fa-trash"></i></button>
+                                              <a href="" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
                                           </td>
                                       </tr>
                                   <?php endforeach ?>
