@@ -243,9 +243,9 @@
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-body text-center">
-                <h5 class="mb-3">Pendaftaran anda berhasil silahkan tunggu untuk activasi oleh admin</h5>
-                <h4 class="text-danger"><?= $this->session->flashdata('kode_siswa') ?></h4>
-                <p>Silahkan Catat atau Screenshoot kode diatas (kode diatas di gunakan untuk melakukan setiap pembayaran)</p>
+                <h5 class="mb-3 mt-3">Pendaftaran anda berhasil silahkan tunggu untuk activasi oleh admin</h5>
+                <!-- <h4 class="text-danger"><?= $this->session->flashdata('kode_siswa') ?></h4> -->
+                <!-- <p>Silahkan Catat atau Screenshoot kode diatas (kode diatas di gunakan untuk melakukan setiap pembayaran)</p> -->
               </div>
             </div>
           </div>
