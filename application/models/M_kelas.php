@@ -12,6 +12,11 @@ class M_kelas extends CI_Model
         return $this->db->get($this->table)->result();
     }
 
+    public function getWhere($where)
+    {
+        return $this->db->get_where($this->table, $where)->row();
+    }
+
     public function getKelasX()
     {
         return $this->db->get_where($this->table, ['grade' => 'X'])->result();

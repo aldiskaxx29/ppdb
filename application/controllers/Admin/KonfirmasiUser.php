@@ -7,6 +7,8 @@ class KonfirmasiUser extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
+		auth_check();
+		check_page_admin($_SESSION['role_id']);
 		$this->load->model('M_user');
 	}
 

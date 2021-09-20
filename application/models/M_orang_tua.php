@@ -31,6 +31,11 @@ class M_orang_tua extends CI_Model
     {
         $this->db->delete($this->table, ['id' => $id]);
     }
+
+    public function deleteByUser($id)
+    {
+        $this->db->delete($this->table, ['user_id' => $id]);
+    }
 }
 
 /* End of file M_orang_tua.php */

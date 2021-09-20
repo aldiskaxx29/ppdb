@@ -21,14 +21,11 @@
           <li><a class="nav-link" href="<?= site_url('admin/kelas') ?>">Data Kelas</a></li>
           <li><a class="nav-link" href="<?= site_url('admin/jurusan') ?>">Data Jurusan</a></li>
           <li><a class="nav-link" href="<?= site_url('admin/jenispembayaran') ?>">Data Jenis Pembayaran</a></li>
+          <li><a class="nav-link" href="<?= base_url('admin/siswa')  ?>">Siswa</a></li>
+          <li><a class="nav-link" href="<?= base_url('admin/user')  ?>">User</a></li>
         </ul>
       </li>
-      <li class="<?php if ($this->uri->segment('2') == 'user') : ?> active <?php endif ?>">
-        <a class="nav-link" href="<?= base_url('admin/user')  ?>"><i class="fas fa-users"></i> <span>User</span></a>
-      </li>
-      <li class="<?php if ($this->uri->segment('2') == 'siswa') : ?> active <?php endif ?>">
-        <a class="nav-link" href="<?= base_url('admin/siswa')  ?>"><i class="fas fa-user-tie"></i> <span>Siswa</span></a>
-      </li>
+      
       <li class="<?php if ($this->uri->segment('2') == 'tagihan') : ?> active <?php endif ?>">
         <a class="nav-link" href="<?= base_url('admin/tagihan/')  ?>"><i class="fas fa-dollar-sign"></i> <span>Data Tagihan</span></a>
       </li>
@@ -41,7 +38,12 @@
       <li class="<?php if ($this->uri->segment('2') == 'config') : ?> active <?php endif ?>">
         <a class="nav-link" href="<?= base_url('admin/config')  ?>"><i class="fas fa-cog"></i> <span>Konfigurasi Aplikasi</span></a>
       </li>
-      <!-- <li><a class="nav-link" href="credits.html"><i class="fas fa-pencil-ruler"></i> <span>Laporan</span></a></li> -->
+      <li class="<?php if ($this->uri->segment('2') == 'laporanpendaftaran') : ?> active <?php endif ?>">
+        <a class="nav-link" href="<?= base_url('admin/laporanpendaftaran')  ?>"><i class="fas fa-users"></i> <span>Laporan Pendaftaran</span></a>
+      </li>
+      <li class="<?php if ($this->uri->segment('2') == 'laporanpembayaran') : ?> active <?php endif ?>">
+        <a class="nav-link" href="<?= base_url('admin/laporanpembayaran')  ?>"><i class="fas fa-dollar-sign"></i> <span>Laporan Pembayaran</span></a>
+      </li>
     </ul>
 
     <div class="mt-4 mb-4 p-3 hide-sidebar-mini">

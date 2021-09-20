@@ -30,7 +30,7 @@
               <form method="POST" action="" class="needs-validation">
                 <div class="form-group">
                   <label for="email">Email</label>
-                  <input id="email" type="email" class="form-control" name="email" tabindex="1" autofocus  placeholder="Masukan Email Anda">
+                  <input id="email" type="email" class="form-control" name="email" tabindex="1" autofocus autocomplete="off" placeholder="Masukan Email Anda">
                   <?= form_error('email', '<small class="text-danger">', '</small>') ?>
                 </div>
 
@@ -38,7 +38,7 @@
                   <div class="d-block">
                     <label for="password" class="control-label">Password</label>
                   </div>
-                  <input id="password" type="password" class="form-control" name="password" tabindex="2" >
+                  <input id="password" type="password" class="form-control" name="password" tabindex="2" autocomplete="off">
                   <?= form_error('password', '<small class="text-danger">', '</small>') ?>
                 </div>
 
@@ -49,9 +49,9 @@
                 </div>
               </form>
               <div class="text-center ">
-				<?php if ($checkPendaftaran == true) : ?>
-					<h5 class=""><a href="<?= base_url('auth/registrasi') ?>" class="text-success">Daftar Siswa Baru</a></h5>
-				<?php endif ?>
+                <?php if ($checkPendaftaran == true) : ?>
+                  <h5 class=""><a href="<?= base_url('pendaftaran/dashboard') ?>" class="text-success">Daftar Siswa Baru</a></h5>
+                <?php endif ?>
                 <h5 class=""><a href="<?= base_url('auth/show_reset') ?>" class="text-success">Reset Password</a></h5>
               </div>
               <div class="row sm-gutters">
@@ -68,17 +68,3 @@
     </div>
   </section>
 </div>
-
-<?php if ($this->session->flashdata('kode_siswa')) : ?>
-  <div id="modalKode" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-body text-center">
-          <h5 class="mb-3">Pendaftaran anda berhasil silahkan tunggu untuk activasi oleh admin</h5>
-          <h4 class="text-danger"><?= $this->session->flashdata('kode_siswa') ?></h4>
-          <p>Silahkan Catat atau Screenshoot kode diatas (kode diatas di gunakan untuk melakukan setiap pembayaran)</p>
-        </div>
-      </div>
-    </div>
-  </div>
-<?php endif ?>

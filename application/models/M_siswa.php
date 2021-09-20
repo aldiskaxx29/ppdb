@@ -15,6 +15,21 @@ class M_siswa extends CI_Model
     {
         return $this->db->get_where($this->table, ['user_id' => $user_id])->row();
     }
+
+    public function getWhere($where)
+    {
+        return $this->db->get_where($this->table, $where)->row();
+    }
+
+    public function update($where, $data)
+    {
+        $this->db->update($this->table, $data, $where);
+    }
+
+    public function deleteByUser($id)
+    {
+        $this->db->delete($this->table, ['user_id' => $id]);
+    }
 }
 
 /* End of file M_siswa.php */

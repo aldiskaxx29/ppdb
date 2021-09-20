@@ -39,6 +39,8 @@
         $(document).ready(function() {
           $('#myTable').DataTable();
 
+          $('#modalKode').modal('show')
+
           $('.foto-bukti img').click(function(e) {
             e.preventDefault()
             let srcImg = $(this).attr('src')

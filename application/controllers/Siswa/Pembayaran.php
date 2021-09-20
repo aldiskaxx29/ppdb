@@ -7,6 +7,8 @@ class Pembayaran extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        not_auth_check();
+        check_page_siswa($_SESSION['role_id']);
         $this->load->model('m_tagihan', 'tagihan');
         $this->load->model('m_pembayaran', 'pembayaran');
     }
@@ -18,7 +20,7 @@ class Pembayaran extends CI_Controller
         $tagihan = $this->tagihan->getByGrade($user->grade, $configApp->tahun_ajaran);
         if (isset($_FILES["foto_bukti"]['name'])) {
             $config['file_name'] = date('YmdHis') . $_FILES["foto_bukti"]['name'];
-            $config['upload_path'] = './assets/img/bukti_pendaftaran/';
+            $config['upload_path'] = './assets/img/bukti_pembayaran/';
             $config['allowed_types'] = 'jpg|png|jpeg|JPG|JPEG|PNG';
             $config['max_size']  = '2048';
 

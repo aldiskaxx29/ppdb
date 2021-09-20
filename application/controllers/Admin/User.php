@@ -8,10 +8,11 @@ class User extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        not_auth_check();
+        check_page_admin($_SESSION['role_id']);
         $this->load->model('M_user', 'user');
         $this->load->model('M_kelas', 'kelas');
         $this->load->model('M_jurusan', 'jurusan');
-        not_auth_check();
     }
 
     // List all your items
@@ -31,7 +32,7 @@ class User extends CI_Controller
     public function detail($id)
     {
         $data = [
-            'title' => 'Detail User',
+            'title' => 'Detail ' . $_GET['redirect'],
             'user'  => $this->user->detail($id),
             'view'  => 'admin/user/detail'
         ];

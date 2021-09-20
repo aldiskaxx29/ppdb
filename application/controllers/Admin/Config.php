@@ -8,7 +8,9 @@ class Config extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-		date_default_timezone_set('Asia/Jakarta');
+        not_auth_check();
+        check_page_admin($_SESSION['role_id']);
+        date_default_timezone_set('Asia/Jakarta');
     }
 
     // List all your items
@@ -25,8 +27,8 @@ class Config extends CI_Controller
 
     //Update one item
     public function update()
-    {	
-		if (isset($_FILES["logo_sekolah"]['name'])) {
+    {
+        if (isset($_FILES["logo_sekolah"]['name'])) {
             $config['file_name'] = date('YmdHis') . $_FILES["logo_sekolah"]['name'];
             $config['upload_path'] = './assets/img/config/';
             $config['allowed_types'] = 'jpg|png|jpeg|JPG|JPEG|PNG|svg|SVG';
@@ -36,26 +38,26 @@ class Config extends CI_Controller
 
             if (!$this->upload->do_upload('logo_sekolah')) {
                 $error = $this->upload->display_errors();
-				$this->session->set_flashdata('error', $error);
-				redirect(site_url('admin/config'), 'refresh');
+                $this->session->set_flashdata('error', $error);
+                redirect(site_url('admin/config'), 'refresh');
             } else {
                 $user = $this->m_user->byEmail($this->session->userdata('email'));
                 $dataUp = [
                     'nama_sekolah'      => $this->input->post('nama_sekolah'),
                     'logo_sekolah'      => $this->upload->data('file_name'),
                     'buka_pendaftaran'  => $this->input->post('buka_pendaftaran'),
-                    'tutup_pendaftaran'	=> $this->input->post('tutup_pendaftaran'),
+                    'tutup_pendaftaran'    => $this->input->post('tutup_pendaftaran'),
                     'tahun_ajaran'      => $this->input->post('tahun_ajaran')
                 ];
                 $this->m_config->update($dataUp);
                 $this->session->set_flashdata('success', 'Data berhasil diedit');
-				redirect(site_url('admin/config'), 'refresh');
+                redirect(site_url('admin/config'), 'refresh');
             }
-		} else {
-			$this->m_config->update($this->input->post());
-			$this->session->set_flashdata('success', 'Data berhasil diedit');
-			redirect(site_url('admin/config'), 'refresh');
-		}
+        } else {
+            $this->m_config->update($this->input->post());
+            $this->session->set_flashdata('success', 'Data berhasil diedit');
+            redirect(site_url('admin/config'), 'refresh');
+        }
     }
 }
 

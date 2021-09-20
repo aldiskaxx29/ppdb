@@ -19,6 +19,14 @@ class M_pendaftaran extends CI_Model
 		return $this->db->get_where($table, $where)->row_array();
 	}
 
+	public function laporan($tahun = null)
+	{
+		if ($tahun) {
+			$this->db->where("EXTRACT(YEAR FROM created) = " . $tahun);
+		}
+		return $this->db->get($this->table)->result();
+	}
+
 	public function update($where, $data)
 	{
 		$this->db->where($where);
@@ -40,6 +48,11 @@ class M_pendaftaran extends CI_Model
 		$this->db->select('tb_user.*, tb_pendaftaran.bukti_pembayaran, tb_pendaftaran.status_bukti_bayar');
 		$this->db->join('tb_pendaftaran', 'tb_pendaftaran.id = tb_user.pendaftaran_id', 'left');
 		return $this->db->get_where('tb_user', ['email' => $this->session->userdata('email')])->row();
+	}
+
+	public function delete($id)
+	{
+		$this->db->delete($this->table, ['id' => $id]);
 	}
 
 	// public function join_pendaftaran(){

@@ -27,7 +27,7 @@
                           <table class="table table-striped" id="myTable">
                               <thead>
                                   <tr>
-                                      <th>Nomor</th>
+                                      <th>No</th>
                                       <th>Jenis Tagihan</th>
                                       <th>Grade</th>
                                       <th>Tahun Ajaran</th>
@@ -45,7 +45,7 @@
                                           <td>Rp. <?= number_format($item->jumlah_tagihan, 0, ',', '.') ?></td>
                                           <td>
                                               <button class="btn btn-danger btn-sm" onclick="return confirm('Yakin Mau Di Hapus') ? window.location.href = '<?= site_url('admin/tagihan/delete/' . $item->id) ?>' : ''"><i class="fas fa-trash"></i></button>
-                                              <!-- <a href="" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a> -->
+                                              <a href="" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#exampleModal<?= $item->id ?>"><i class="fas fa-edit"></i></a>
                                           </td>
                                       </tr>
                                   <?php endforeach ?>
@@ -97,3 +97,55 @@
               </div>
           </div>
       </div>
+
+
+
+<!-- Modal edit bot -->
+<?php foreach ($tagihan as $no => $item): ?>
+  <div class="modal fade" id="exampleModal<?= $item->id ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal Ubah</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form action="<?= site_url('Admin/tagihan/update') ?>" method="post">
+              <input type="hidden" name="id" value="<?= $item->id ?>">
+              <div class="form-group">
+                  <label for="jenis_pembayaran_id">Pilih Jenis Tagihan</label>
+                  <select id="jenis_pembayaran_id" class="form-control" name="jenis_pembayaran_id">
+                      <?php foreach ($jenis as $j) : ?>
+                        <?php if ($j->id == $item->jenis_pembayaran_id): ?>
+                          <option value="<?= $j->id ?>" selected><?= $j->jenis ?></option>
+                        <?php else: ?>
+                          <option value="<?= $j->id ?>"><?= $j->jenis ?></option>
+                        <?php endif ?>
+                      <?php endforeach ?>
+                  </select>
+              </div>
+              <div class="form-group">
+                  <label for="grade_tagihan">Pilih Grade</label>
+                  <!-- <input type="text" name="" class="form-control" value="<?php echo $item->grade_tagihan ?>"> -->
+                  <select id="grade_tagihan" class="form-control" name="grade_tagihan">
+                      <option value="X" <?php if ($item->grade_tagihan == "X"): ?>selected<?php endif ?>>X</option>
+                      <option value="XI" <?php if ($item->grade_tagihan == "XI"): ?>selected<?php endif ?>>XI</option>
+                      <option value="XII" <?php if ($item->grade_tagihan == "XII"): ?>selected<?php endif ?>>XII</option>
+                  </select>
+              </div>
+              <div class="form-group">
+                  <label>Jumlah Tagihan</label>
+                  <input type="number" class="form-control" name="jumlah_tagihan" value="<?= $item->jumlah_tagihan ?>">
+              </div>
+              <div class="form-group float-right">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary">Simpan</button>
+              </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+<?php endforeach ?>

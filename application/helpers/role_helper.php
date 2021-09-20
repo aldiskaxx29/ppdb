@@ -32,8 +32,36 @@ function redirect_role($role_id)
         case 3:
             redirect(site_url('siswa/dashboard'));
             break;
-        default:
-            $name_role = 'Kepala Sekolah';
+        case 4:
+            redirect(site_url('kepsek/dashboard'));
             break;
+    }
+}
+
+function check_page_admin($role_id)
+{
+    if ($role_id != 1) {
+        redirect_role($role_id);
+    }
+}
+
+function check_page_calon_siswa($role_id)
+{
+    if ($role_id != 2) {
+        redirect_role($role_id);
+    }
+}
+
+function check_page_siswa($role_id)
+{
+    if ($role_id != 3) {
+        redirect_role($role_id);
+    }
+}
+
+function check_page_kepsek($role_id)
+{
+    if ($role_id != 4) {
+        redirect_role($role_id);
     }
 }

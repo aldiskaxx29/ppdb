@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 30, 2021 at 05:47 AM
--- Server version: 10.3.16-MariaDB
--- PHP Version: 7.3.6
+-- Waktu pembuatan: 24 Agu 2021 pada 18.23
+-- Versi server: 10.4.6-MariaDB
+-- Versi PHP: 7.3.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_config`
+-- Struktur dari tabel `tb_config`
 --
 
 CREATE TABLE `tb_config` (
@@ -38,16 +38,16 @@ CREATE TABLE `tb_config` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_config`
+-- Dumping data untuk tabel `tb_config`
 --
 
 INSERT INTO `tb_config` (`id`, `nama_sekolah`, `logo_sekolah`, `buka_pendaftaran`, `tutup_pendaftaran`, `tahun_ajaran`) VALUES
-(1, 'SMA AL MULTAZAM', '20210828120147sip.png', '2021-08-28', '2021-08-31', '2021/2022');
+(1, NULL, NULL, NULL, NULL, '2021/2022');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_jenis_pembayaran`
+-- Struktur dari tabel `tb_jenis_pembayaran`
 --
 
 CREATE TABLE `tb_jenis_pembayaran` (
@@ -56,7 +56,7 @@ CREATE TABLE `tb_jenis_pembayaran` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_jenis_pembayaran`
+-- Dumping data untuk tabel `tb_jenis_pembayaran`
 --
 
 INSERT INTO `tb_jenis_pembayaran` (`id`, `jenis`) VALUES
@@ -68,7 +68,7 @@ INSERT INTO `tb_jenis_pembayaran` (`id`, `jenis`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_jurusan`
+-- Struktur dari tabel `tb_jurusan`
 --
 
 CREATE TABLE `tb_jurusan` (
@@ -77,17 +77,16 @@ CREATE TABLE `tb_jurusan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_jurusan`
+-- Dumping data untuk tabel `tb_jurusan`
 --
 
 INSERT INTO `tb_jurusan` (`id`, `nama_jurusan`) VALUES
-(2, 'Rekayasa Perangkat Lunak'),
-(3, 'Marketing');
+(2, 'Rekayasa Perangkat Lunak');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_kelas`
+-- Struktur dari tabel `tb_kelas`
 --
 
 CREATE TABLE `tb_kelas` (
@@ -97,18 +96,17 @@ CREATE TABLE `tb_kelas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_kelas`
+-- Dumping data untuk tabel `tb_kelas`
 --
 
 INSERT INTO `tb_kelas` (`id`, `grade`, `nama_kelas`) VALUES
 (1, 'X', 'RPL 1'),
-(3, 'XI', 'RPL 1'),
-(4, 'XII', 'RPL 1');
+(3, 'XI', 'RPL 1');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_orang_tua`
+-- Struktur dari tabel `tb_orang_tua`
 --
 
 CREATE TABLE `tb_orang_tua` (
@@ -120,17 +118,16 @@ CREATE TABLE `tb_orang_tua` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_orang_tua`
+-- Dumping data untuk tabel `tb_orang_tua`
 --
 
 INSERT INTO `tb_orang_tua` (`id`, `nama_ortu`, `pendidikan`, `pekerjaan`, `user_id`) VALUES
-(1, 'Mama', 'SMP', 'Kerja', 9),
-(2, 'irwan', 'sd', 'buruh', 11);
+(1, 'Mama', 'SMP', 'Kerja', 9);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_pembayaran`
+-- Struktur dari tabel `tb_pembayaran`
 --
 
 CREATE TABLE `tb_pembayaran` (
@@ -145,7 +142,7 @@ CREATE TABLE `tb_pembayaran` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_pembayaran`
+-- Dumping data untuk tabel `tb_pembayaran`
 --
 
 INSERT INTO `tb_pembayaran` (`id`, `user_id`, `tagihan_id`, `jenis_pembayaran_id`, `jumlah`, `foto_bukti`, `konfirm`, `created_at`) VALUES
@@ -155,7 +152,7 @@ INSERT INTO `tb_pembayaran` (`id`, `user_id`, `tagihan_id`, `jenis_pembayaran_id
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_pendaftaran`
+-- Struktur dari tabel `tb_pendaftaran`
 --
 
 CREATE TABLE `tb_pendaftaran` (
@@ -182,17 +179,16 @@ CREATE TABLE `tb_pendaftaran` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_pendaftaran`
+-- Dumping data untuk tabel `tb_pendaftaran`
 --
 
 INSERT INTO `tb_pendaftaran` (`id`, `nis`, `nisn`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `agama`, `alamat`, `no_telpon`, `upload_ijazah`, `upload_skhun`, `upload_kk`, `upload_akte`, `upload_ktp_ortu`, `bukti_pembayaran`, `status_bukti_bayar`, `kode_siswa`, `status`, `created`) VALUES
-(10, NULL, '0027235268', 'Bendi Tandayu Saputra', 'Laki-Laki', 'Banjarnegara', '2005-02-16', 'Islam', 'Banjarnegara', '084526453274', '202108151631001.png', '2021081516330934-web_essential-128.png', '202108151633463.jpg', '2021081516341583944.jpg', '20210815163539twit.png', NULL, NULL, 'YLGFF5P0J3', 0, '2021-08-08 16:07:29'),
-(11, NULL, '2321312412', 'verdian', 'Laki-Laki', 'Tangerang', '2000-02-29', 'islam', 'sepatan timur', '0895334930931', '20210828112046sip.png', '2021082811205612-1.jpg', '20210828112130download.jpg', '20210828112223download.jpg', '20210828112000igg.png', NULL, NULL, 'Q4SLZXPMIH', 0, '2021-08-28 12:03:09');
+(10, NULL, '0027235268', 'Bendi Tandayu Saputra', 'Laki-Laki', 'Banjarnegara', '2005-02-16', 'Islam', 'Banjarnegara', '084526453274', '202108151631001.png', '2021081516330934-web_essential-128.png', '202108151633463.jpg', '2021081516341583944.jpg', '20210815163539twit.png', NULL, NULL, 'YLGFF5P0J3', 0, '2021-08-08 16:07:29');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_siswa`
+-- Struktur dari tabel `tb_siswa`
 --
 
 CREATE TABLE `tb_siswa` (
@@ -204,17 +200,16 @@ CREATE TABLE `tb_siswa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_siswa`
+-- Dumping data untuk tabel `tb_siswa`
 --
 
 INSERT INTO `tb_siswa` (`id`, `tanggal_diterima`, `tahun_masuk`, `tahun_keluar`, `user_id`) VALUES
-(3, '2021-08-23', '2021', NULL, 9),
-(4, '2021-08-28', '2021', NULL, 11);
+(3, '2021-08-23', '2021', NULL, 9);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_tagihan`
+-- Struktur dari tabel `tb_tagihan`
 --
 
 CREATE TABLE `tb_tagihan` (
@@ -226,7 +221,7 @@ CREATE TABLE `tb_tagihan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_tagihan`
+-- Dumping data untuk tabel `tb_tagihan`
 --
 
 INSERT INTO `tb_tagihan` (`id`, `jenis_pembayaran_id`, `tahun_ajaran`, `grade_tagihan`, `jumlah_tagihan`) VALUES
@@ -238,7 +233,7 @@ INSERT INTO `tb_tagihan` (`id`, `jenis_pembayaran_id`, `tahun_ajaran`, `grade_ta
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_user`
+-- Struktur dari tabel `tb_user`
 --
 
 CREATE TABLE `tb_user` (
@@ -257,52 +252,50 @@ CREATE TABLE `tb_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_user`
+-- Dumping data untuk tabel `tb_user`
 --
 
 INSERT INTO `tb_user` (`id`, `pendaftaran_id`, `orang_tua_id`, `siswa_id`, `jurusan_id`, `kelas_id`, `nama`, `email`, `password`, `role_id`, `status`, `created`) VALUES
 (3, 4, 0, 2, 0, 0, 'admin', 'admin@gmail.com', '$2y$10$Zu3BBoRwN365v3JOTTUw2eQyBjuOmqpcDUHarp9YSGF2LO0QrNQCe', 1, 1, '2021-07-28 22:50:05'),
-(9, 10, 1, 3, 2, 1, 'Bendi Tandayu Saputra', 'bend@gmail.com', '$2y$10$8Jwxe3kh1pGsVFD48OHsxOmY5oLDzNR/qH8RxmsN783bT093EetHq', 3, 1, '2021-08-08 16:07:29'),
-(10, 0, 0, 0, 0, 0, 'aldi', 'aldi@gmail.com', '$2y$10$ze88KawYZVX3oY3gIF3wu.NfYVa2oN9nUQr80euFBa4keDNPZpoy6', 0, 1, '2021-08-28 11:42:28'),
-(11, 11, 2, 4, 2, 1, 'verdian', 'verdian@gmail.com', '$2y$10$pba6iVt9mCxrEtn7MXj5QO7V6bdXqh3OWlYc8MHGGWDye2bhskqqq', 2, 1, '2021-08-28 12:03:09');
+(9, 10, 1, 3, 2, 1, 'Bendi Tandayu Saputra', 'bend@gmail.com', '$2y$10$8Jwxe3kh1pGsVFD48OHsxOmY5oLDzNR/qH8RxmsN783bT093EetHq', 3, 1, '2021-08-08 16:07:29');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `tb_config`
+-- Indeks untuk tabel `tb_config`
 --
 ALTER TABLE `tb_config`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tb_jenis_pembayaran`
+-- Indeks untuk tabel `tb_jenis_pembayaran`
 --
 ALTER TABLE `tb_jenis_pembayaran`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tb_jurusan`
+-- Indeks untuk tabel `tb_jurusan`
 --
 ALTER TABLE `tb_jurusan`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tb_kelas`
+-- Indeks untuk tabel `tb_kelas`
 --
 ALTER TABLE `tb_kelas`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tb_orang_tua`
+-- Indeks untuk tabel `tb_orang_tua`
 --
 ALTER TABLE `tb_orang_tua`
   ADD PRIMARY KEY (`id`),
   ADD KEY `user_id` (`user_id`);
 
 --
--- Indexes for table `tb_pembayaran`
+-- Indeks untuk tabel `tb_pembayaran`
 --
 ALTER TABLE `tb_pembayaran`
   ADD PRIMARY KEY (`id`),
@@ -310,27 +303,27 @@ ALTER TABLE `tb_pembayaran`
   ADD KEY `jenis_pembayaran_id` (`jenis_pembayaran_id`);
 
 --
--- Indexes for table `tb_pendaftaran`
+-- Indeks untuk tabel `tb_pendaftaran`
 --
 ALTER TABLE `tb_pendaftaran`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tb_siswa`
+-- Indeks untuk tabel `tb_siswa`
 --
 ALTER TABLE `tb_siswa`
   ADD PRIMARY KEY (`id`),
   ADD KEY `user_id` (`user_id`);
 
 --
--- Indexes for table `tb_tagihan`
+-- Indeks untuk tabel `tb_tagihan`
 --
 ALTER TABLE `tb_tagihan`
   ADD PRIMARY KEY (`id`),
   ADD KEY `jenis_pembayaran_id` (`jenis_pembayaran_id`);
 
 --
--- Indexes for table `tb_user`
+-- Indeks untuk tabel `tb_user`
 --
 ALTER TABLE `tb_user`
   ADD PRIMARY KEY (`id`),
@@ -341,75 +334,75 @@ ALTER TABLE `tb_user`
   ADD KEY `siswa_id` (`siswa_id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `tb_config`
+-- AUTO_INCREMENT untuk tabel `tb_config`
 --
 ALTER TABLE `tb_config`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `tb_jenis_pembayaran`
+-- AUTO_INCREMENT untuk tabel `tb_jenis_pembayaran`
 --
 ALTER TABLE `tb_jenis_pembayaran`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `tb_jurusan`
+-- AUTO_INCREMENT untuk tabel `tb_jurusan`
 --
 ALTER TABLE `tb_jurusan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `tb_kelas`
---
-ALTER TABLE `tb_kelas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `tb_orang_tua`
---
-ALTER TABLE `tb_orang_tua`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `tb_pembayaran`
+-- AUTO_INCREMENT untuk tabel `tb_kelas`
+--
+ALTER TABLE `tb_kelas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT untuk tabel `tb_orang_tua`
+--
+ALTER TABLE `tb_orang_tua`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT untuk tabel `tb_pembayaran`
 --
 ALTER TABLE `tb_pembayaran`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `tb_pendaftaran`
+-- AUTO_INCREMENT untuk tabel `tb_pendaftaran`
 --
 ALTER TABLE `tb_pendaftaran`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `tb_siswa`
+-- AUTO_INCREMENT untuk tabel `tb_siswa`
 --
 ALTER TABLE `tb_siswa`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT untuk tabel `tb_tagihan`
+--
+ALTER TABLE `tb_tagihan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `tb_tagihan`
---
-ALTER TABLE `tb_tagihan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT for table `tb_user`
+-- AUTO_INCREMENT untuk tabel `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `tb_pembayaran`
+-- Ketidakleluasaan untuk tabel `tb_pembayaran`
 --
 ALTER TABLE `tb_pembayaran`
   ADD CONSTRAINT `tb_pembayaran_ibfk_1` FOREIGN KEY (`jenis_pembayaran_id`) REFERENCES `tb_jenis_pembayaran` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;

@@ -5,15 +5,16 @@ class Dashboard extends CI_Controller
     {
         parent::__construct();
         not_auth_check();
+        check_page_kepsek($_SESSION['role_id']);
     }
 
     public function index()
     {
         $data['title'] = 'Dashboard';
-        $this->load->view('template_siswa/header', $data);
-        $this->load->view('template_siswa/sidebar');
-        $this->load->view('template_siswa/topbar');
-        $this->load->view('admin/Dashboard', $data);
-        $this->load->view('template_siswa/footer');
+        $this->load->view('template_kepsek/header', $data);
+        $this->load->view('template_kepsek/sidebar');
+        $this->load->view('template_kepsek/topbar');
+        $this->load->view('kepsek/dashboard', $data);
+        $this->load->view('template_kepsek/footer');
     }
 }

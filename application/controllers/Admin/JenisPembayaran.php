@@ -8,8 +8,9 @@ class Jenispembayaran extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('M_jenis_pembayaran', 'jenis_pembayaran');
         not_auth_check();
+        check_page_admin($_SESSION['role_id']);
+        $this->load->model('M_jenis_pembayaran', 'jenis_pembayaran');
     }
 
     // List all your items

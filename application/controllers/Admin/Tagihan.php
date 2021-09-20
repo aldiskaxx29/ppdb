@@ -7,9 +7,10 @@ class Tagihan extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        not_auth_check();
+        check_page_admin($_SESSION['role_id']);
         $this->load->model('M_tagihan', 'tagihan');
         $this->load->model('M_jenis_pembayaran', 'jenis_pembayaran');
-        not_auth_check();
     }
 
     // List all your items
@@ -46,12 +47,15 @@ class Tagihan extends CI_Controller
     //Update one item
     public function update()
     {
-        $this->form_validation->set_rules('nama_tagihan', 'Nama Tagihan', 'trim|required', [
+        // var_dump($this->input->post());die;
+        $this->form_validation->set_rules('jenis_pembayaran_id', 'jenis_pembayaran_id', 'trim|required', [
             'required'  => 'Nama Tagihan Harus Diisi',
             'is_unique' => 'Nama Tagihan Sudah Ada'
         ]);
 
         if ($this->form_validation->run()) {
+            // $cek = $this->input->post();
+            // var_dump($cek);die;
             $this->tagihan->update($this->input->post('id'), $this->input->post());
             $this->session->set_flashdata('success', 'Data berhasil diedit');
             redirect(site_url('admin/tagihan'), 'refresh');

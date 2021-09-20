@@ -113,7 +113,7 @@
                                   <option value="">-- Plihan Type User --</option>
                                   <!-- <option value="2">Siswa</option> -->
                                   <option value="1">Admin</option>
-                                  <option value="0">Kepala Sekolah</option>
+                                  <option value="3">Kepala Sekolah</option>
                               </select>
                           </div>
                           <div class="form-group">
