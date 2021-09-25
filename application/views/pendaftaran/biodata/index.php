@@ -26,11 +26,11 @@
                 <?php endif ?>
                 <?php if ($user === null) : ?>
                   <h5 class="mb-3"><strong>Data Diri Calon Siswa</strong></h5>
-                  <form method="post" action="<?= site_url('pendaftaran/biodata/dataSiswa') ?>">
+                  <form method="post" action="<?= site_url('pendaftaran/biodata/dataSiswa') ?>" enctype="multipart/form-data">
                     <div class="form-group row">
                       <label for="nama" class="col-sm-2 col-form-label">Nama</label>
                       <div class="col-sm-10">
-                        <input type="text" class="form-control" id="nama" name="nama">
+                        <input type="text" class="form-control" id="nama" name="nama" value="<?= set_value('nama') ?>">
                       </div>
                     </div>
                     <div class="form-group row">
@@ -132,6 +132,41 @@
                       <label for="pekerjaan" class="col-sm-2 col-form-label">Pekerjaan Orang Tua</label>
                       <div class="col-sm-10">
                         <input type="text" class="form-control" id="pekerjaan" name="pekerjaan" required value="<?= set_value('pekerjaan') ?>">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="ijazah" class="col-sm-2 col-form-label">Upload Ijazah</label>                      
+                      <div class="col-sm-7">
+                        <input type="file" name="upload_ijazah" class="form-control" id="ijazah" required >
+                        <small class="text-info">Dalam Bentuk Foto</small>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="upload_skhun" class="col-sm-2 col-form-label">Upload SKHUN</label>
+                      <div class="col-sm-7">
+                        <input type="file" class="form-control" id="upload_skhun" name="upload_skhun" required>
+                        <small class="text-info">Dalam Bentuk Foto </small>
+                      </div>                   
+                    </div>
+                    <div class="form-group row">
+                      <label for="upload_kk" class="col-sm-2 col-form-label">Upload Kartu Keluarga</label>
+                      <div class="col-sm-7">
+                        <input type="file" class="form-control" id="upload_kk" name="upload_kk" required>
+                        <small class="text-info">Dalam Bentuk Foto </small>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <label for="upload_akte" class="col-sm-2 col-form-label">Upload Akte Kelahiran</label>
+                      <div class="col-sm-7">
+                        <input type="file" class="form-control" id="upload_akte" name="upload_akte" required>
+                        <small class="text-info">Dalam Bentuk Foto </small>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="upload_ktp_ortu" class="col-sm-2 col-form-label">Upload KTP Orang Tua</label>
+                      <div class="col-sm-7">
+                        <input type="file" class="form-control" id="upload_ktp_ortu" name="upload_ktp_ortu" required>
+                        <small class="text-info">Dalam Bentuk Foto </small>
                       </div>
                     </div>
                     <div class="row">
@@ -243,9 +278,9 @@
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-body text-center">
-                <h5 class="mb-3 mt-3">Pendaftaran anda berhasil silahkan tunggu untuk activasi oleh admin</h5>
-                <!-- <h4 class="text-danger"><?= $this->session->flashdata('kode_siswa') ?></h4> -->
-                <!-- <p>Silahkan Catat atau Screenshoot kode diatas (kode diatas di gunakan untuk melakukan setiap pembayaran)</p> -->
+                <h5 class="mb-3">Pendaftaran anda berhasil silahkan tunggu untuk activasi oleh admin</h5>
+                <h4 class="text-danger"><?= $this->session->flashdata('kode_siswa') ?></h4>
+                <p>Silahkan Catat atau Screenshoot kode diatas (kode diatas di gunakan untuk melakukan setiap pembayaran)</p>
               </div>
             </div>
           </div>

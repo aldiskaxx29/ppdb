@@ -13,6 +13,10 @@
           <div class="section-body">
             <div class="card">
               <div class="card-body">
+                <div class="alert alert-danger">Tidak Ada</div>
+              </div>
+
+              <!-- <div class="card-body">
                 <?php if ($check == false) : ?>
                   <?php if ($this->session->flashdata('success')) : ?>
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -36,7 +40,7 @@
                     <h4 class="alert-heading">Silahkan Lengkapi Biodata Pendaftaran Anda Terlebih Dahulu</h4>
                   </div>
                 <?php endif ?>
-              </div>
+              </div> -->
             </div>
           </div>
         </section>

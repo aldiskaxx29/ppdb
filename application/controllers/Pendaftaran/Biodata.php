@@ -46,15 +46,94 @@ class Biodata extends CI_Controller
 		$this->form_validation->set_rules('konfir_password', 'Konfirmasi Password', 'required|trim|min_length[6]|matches[password]');
 
 		if ($this->form_validation->run()) {
-			$nama     = $this->input->post('nama');
-			$nisn     = $this->input->post('nisn');
-			$tempat = $this->input->post('tempat_lahir');
-			$tgl     = $this->input->post('tanggal_lahir');
-			$jk     = $this->input->post('jk');
-			$agama     = $this->input->post('agama');
-			$no_hp     = $this->input->post('no_telpon');
-			$alamat = $this->input->post('alamat');
-			$email = $this->input->post('email');
+			$nama     	= $this->input->post('nama');
+			$nisn     	= $this->input->post('nisn');
+			$tempat 	= $this->input->post('tempat_lahir');
+			$tgl     	= $this->input->post('tanggal_lahir');
+			$jk     	= $this->input->post('jk');
+			$agama    	= $this->input->post('agama');
+			$no_hp     	= $this->input->post('no_telpon');
+			$alamat 	= $this->input->post('alamat');
+			$email 		= $this->input->post('email');
+			$upload_ijazah = $_FILES['upload_ijazah']['name'];
+			$upload_skhun = $_FILES['upload_skhun']['name'];
+			$upload_kk = $_FILES['upload_kk']['name'];
+			$upload_akte = $_FILES['upload_akte']['name'];
+			$upload_ktp_ortu = $_FILES['upload_ktp_ortu']['name'];
+			// tambahan file upload aldi
+			if ($upload_ijazah) {
+				$config['file_name'] = date('YmdHis') . $upload_ijazah;
+				$config['upload_path'] = './assets/img/ijazah/';
+				$config['allowed_types'] = 'jpg|png|jpeg|JPG|JPEG|PNG';
+				$config['max_size']  = '2048';
+
+				$this->load->library('upload', $config);
+
+				if (!$this->upload->do_upload('upload_ijazah')) {
+					echo 'Upload Ijazah Gagal';
+				} else {
+					$new_ijazah = $this->upload->data('file_name');
+				}
+			}
+			if ($upload_skhun) {
+				$config['file_name'] = date('YmdHis') . $upload_skhun;
+				$config['upload_path'] = './assets/img/skhun/';
+				$config['allowed_types'] = 'jpg|png|jpeg|JPG|JPEG|PNG';
+				$config['max_size']  = '2048';
+
+				$this->load->library('upload', $config);
+
+				if (!$this->upload->do_upload('upload_skhun')) {
+					echo 'Upload Skhun Gagal';
+				} else {
+					$new_skhun = $this->upload->data('file_name');
+				}
+			}
+			if ($upload_kk) {
+				$config['file_name'] = date('YmdHis') . $upload_kk;
+				$config['upload_path'] = './assets/img/kk/';
+				$config['allowed_types'] = 'jpg|png|jpeg|JPG|JPEG|PNG';
+				$config['max_size']  = '2048';
+
+				$this->load->library('upload', $config);
+
+				if (!$this->upload->do_upload('upload_kk')) {
+					echo 'Upload KK Gagal';
+				} else {
+					$new_kk = $this->upload->data('file_name');
+				}
+			}
+			if ($upload_akte) {
+				$config['file_name'] = date('YmdHis') . $upload_akte;
+				$config['upload_path'] = './assets/img/akte/';
+				$config['allowed_types'] = 'jpg|png|jpeg|JPG|JPEG|PNG';
+				$config['max_size']  = '2048';
+
+				$this->load->library('upload', $config);
+
+				if (!$this->upload->do_upload('upload_akte')) {
+					echo 'Upload Akte Gagal';
+				} else {
+					$new_akte = $this->upload->data('file_name');
+				}
+			}
+			if ($upload_ktp_ortu) {
+				$config['file_name'] = date('YmdHis') . $upload_ktp_ortu;
+				$config['upload_path'] = './assets/img/ktp_ortu/';
+				$config['allowed_types'] = 'jpg|png|jpeg|JPG|JPEG|PNG';
+				$config['max_size']  = '2048';
+
+				$this->load->library('upload', $config);
+
+				if (!$this->upload->do_upload('upload_ktp_ortu')) {
+					echo 'Upload Ktp Ortu Gagal';
+				} else {
+					$new_ktp_ortu = $this->upload->data('file_name');
+				}
+			}
+
+
+
 			$pendaftaran = [
 				'nama'             => $nama,
 				'nisn'             => $nisn,
@@ -65,8 +144,16 @@ class Biodata extends CI_Controller
 				'no_telpon'        => $no_hp,
 				'alamat'           => $alamat,
 				'kode_siswa'       => strtoupper(random_string('alnum', 10)),
-				'status'           => 0
+				'status'           => 0,
+				'upload_ijazah'	   => $new_ijazah,
+				'upload_skhun'	   => $new_skhun,
+				'upload_kk'		   => $new_kk,
+				'upload_akte'	   => $new_akte,
+				'upload_ktp_ortu'  => $new_ktp_ortu,
+
+
 			];
+			// var_dump($pendaftaran);die;
 			$this->m_pendaftaran->insert($pendaftaran);
 			$daftar = $this->m_pendaftaran->register($pendaftaran);
 			$user = [
@@ -111,27 +198,28 @@ class Biodata extends CI_Controller
 			$this->session->set_userdata($array);
 
 			$this->session->set_flashdata('success', 'Data Berhasil Di Tambahkan');
-			redirect(site_url('pendaftaran/biodata'), 'refresh');
+			// redirect(site_url('pendaftaran/biodata'), 'refresh');
+			redirect(site_url('pendaftaran/pengumuman/lulus'), 'refresh');
 		} else {
 			$this->session->set_flashdata('error', validation_errors('<div>', '</div>'));
 			redirect(site_url('pendaftaran/biodata'), 'refresh');
 		}
 	}
 
-	// public function dataOrtu()
-	// {
-	// 	if (isset($_POST['user_id'])) {
-	// 		if (empty($this->orang_tua->byUserId($this->input->post('user_id')))) {
-	// 			$this->orang_tua->insert($this->input->post());
-	// 			$dataGet = $this->orang_tua->byUserId($this->input->post('user_id'));
-	// 			$this->m_user->update($this->input->post('user_id'), ['orang_tua_id' => $dataGet->id]);
-	// 		} else {
-	// 			$this->orang_tua->update($this->input->post('user_id'), $this->input->post());
-	// 		}
-	// 		$this->session->set_flashdata('success', 'Update Data Orang Tua Berhasil');
-	// 		redirect(site_url('pendaftaran/biodata'), 'refresh');
-	// 	}
-	// }
+	public function dataOrtu()
+	{
+		if (isset($_POST['user_id'])) {
+			if (empty($this->orang_tua->byUserId($this->input->post('user_id')))) {
+				$this->orang_tua->insert($this->input->post());
+				$dataGet = $this->orang_tua->byUserId($this->input->post('user_id'));
+				$this->m_user->update($this->input->post('user_id'), ['orang_tua_id' => $dataGet->id]);
+			} else {
+				$this->orang_tua->update($this->input->post('user_id'), $this->input->post());
+			}
+			$this->session->set_flashdata('success', 'Update Data Orang Tua Berhasil');
+			redirect(site_url('pendaftaran/biodata'), 'refresh');
+		}
+	}
 
 	public function uploadIjazah()
 	{

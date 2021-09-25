@@ -17,10 +17,10 @@
       <li class="<?php if ($this->uri->segment('2') == 'Biodata') : ?> active <?php endif ?>">
         <a class="nav-link" href="<?= base_url('pendaftaran/biodata/')  ?>"><i class="fas fa-user"></i> <span>Biodata Pendaftaran</span></a>
       </li>
-      <!-- <li class="<?php if ($this->uri->segment('2') == 'Pengumuman') : ?> active <?php endif ?>">
-        <a class="nav-link" href="<?= base_url('pendaftaran/pengumuman')  ?>"><i class="fas fa-file"></i> <span>Pengumuman</span></a>
+      <li class="<?php if ($this->uri->segment('2') == 'Pengumuman') : ?> active <?php endif ?>">
+        <a class="nav-link" href="<?= base_url('pendaftaran/pengumuman')  ?>"><i class="fas fa-comment"></i> <span>Pengumuman</span></a>
       </li>
-      <li class="<?php if ($this->uri->segment('2') == 'pembayaran') : ?> active <?php endif ?>">
+      <!-- <li class="<?php if ($this->uri->segment('2') == 'pembayaran') : ?> active <?php endif ?>">
         <a class="nav-link" href="<?= base_url('pendaftaran/pembayaran')  ?>"><i class="fas fa-dollar-sign"></i> <span>Pembayaran Pendaftaran</span></a>
       </li> -->
     </ul>
