@@ -24,7 +24,7 @@
                     <?= $this->session->flashdata('error') ?>
                   </div>
                 <?php endif ?>
-                <?php if ($user === null) : ?>
+                
                   <h5 class="mb-3"><strong>Data Diri Calon Siswa</strong></h5>
                   <form method="post" action="<?= site_url('pendaftaran/biodata/dataSiswa') ?>" enctype="multipart/form-data">
                     <div class="form-group row">
@@ -114,6 +114,7 @@
                       <label for="no_telpon" class="col-sm-2 col-form-label">No WA</label>
                       <div class="col-sm-10">
                         <input type="text" class="form-control" id="no_telpon" name="no_telpon" required value="<?= set_value('no_telpon') ?>">
+                        <small class="text-info">Gunakan 62 di depan</small>
                       </div>
                     </div>
                     <div class="form-group row">
@@ -175,99 +176,7 @@
                       </div>
                     </div>
                   </form>
-                <?php else : ?>
-                  <form action="<?= site_url('pendaftaran/biodata/uploadSkhun') ?>" method="post" enctype="multipart/form-data">
-                    <input type="hidden" name="id" value="<?= $user->id ?>">
-                    <input type="hidden" name="user_id" value="<?= $user->user_id ?>">
-                    <div class="form-group row">
-                      <label for="upload_skhun" class="col-sm-2 col-form-label">Upload SKHUN</label>
-                      <div class="col-sm-7">
-                        <input type="file" class="form-control" id="upload_skhun" name="upload_skhun" required>
-                        <small class="text-info">Dalam Bentuk Foto (Upload Ulang jika ingin mengganti)</small>
-                      </div>
-                      <div class="col-sm-3 text-right">
-                        <button type="submit" class="btn btn-primary">Upload</button>
-                      </div>
-                      <?php if (!empty($user->upload_skhun)) : ?>
-                        <div class="col-sm-12 my-3">
-                          <img src="<?= base_url('assets/img/skhun/' . $user->upload_skhun) ?>" alt="Foto Ijazah" width="200px">
-                        </div>
-                      <?php endif ?>
-                    </div>
-                  </form>
-                  <form action="<?= site_url('pendaftaran/biodata/uploadKK') ?>" method="post" enctype="multipart/form-data">
-                    <input type="hidden" name="id" value="<?= $user->id ?>">
-                    <input type="hidden" name="user_id" value="<?= $user->user_id ?>">
-                    <div class="form-group row">
-                      <label for="upload_kk" class="col-sm-2 col-form-label">Upload Kartu Keluarga</label>
-                      <div class="col-sm-7">
-                        <input type="file" class="form-control" id="upload_kk" name="upload_kk" required>
-                        <small class="text-info">Dalam Bentuk Foto (Upload Ulang jika ingin mengganti)</small>
-                      </div>
-                      <div class="col-sm-3 text-right">
-                        <button type="submit" class="btn btn-primary">Upload</button>
-                      </div>
-                      <?php if (!empty($user->upload_kk)) : ?>
-                        <div class="col-sm-12 my-3">
-                          <img src="<?= base_url('assets/img/kk/' . $user->upload_kk) ?>" alt="Foto Ijazah" width="200px">
-                        </div>
-                      <?php endif ?>
-                    </div>
-                  </form>
-                  <form action="<?= site_url('pendaftaran/biodata/uploadAkte') ?>" method="post" enctype="multipart/form-data">
-                    <input type="hidden" name="id" value="<?= $user->id ?>">
-                    <input type="hidden" name="user_id" value="<?= $user->user_id ?>">
-                    <div class="form-group row">
-                      <label for="upload_akte" class="col-sm-2 col-form-label">Upload Akte Kelahiran</label>
-                      <div class="col-sm-7">
-                        <input type="file" class="form-control" id="upload_akte" name="upload_akte" required>
-                        <small class="text-info">Dalam Bentuk Foto (Upload Ulang jika ingin mengganti)</small>
-                      </div>
-                      <div class="col-sm-3 text-right">
-                        <button type="submit" class="btn btn-primary">Upload</button>
-                      </div>
-                      <?php if (!empty($user->upload_akte)) : ?>
-                        <div class="col-sm-12 my-3">
-                          <img src="<?= base_url('assets/img/akte/' . $user->upload_akte) ?>" alt="Foto Ijazah" width="200px">
-                        </div>
-                      <?php endif ?>
-                    </div>
-                  </form>
-                  <form action="<?= site_url('pendaftaran/biodata/uploadKTP') ?>" method="post" enctype="multipart/form-data">
-                    <input type="hidden" name="id" value="<?= $user->id ?>">
-                    <input type="hidden" name="user_id" value="<?= $user->user_id ?>">
-                    <div class="form-group row">
-                      <label for="upload_ktp_ortu" class="col-sm-2 col-form-label">Upload KTP Orang Tua</label>
-                      <div class="col-sm-7">
-                        <input type="file" class="form-control" id="upload_ktp_ortu" name="upload_ktp_ortu" required>
-                        <small class="text-info">Dalam Bentuk Foto (Upload Ulang jika ingin mengganti)</small>
-                      </div>
-                      <div class="col-sm-3 text-right">
-                        <button type="submit" class="btn btn-primary">Upload</button>
-                      </div>
-                      <?php if (!empty($user->upload_ktp_ortu)) : ?>
-                        <div class="col-sm-12 my-3">
-                          <img src="<?= base_url('assets/img/ktp_ortu/' . $user->upload_ktp_ortu) ?>" alt="Foto Ijazah" width="200px">
-                        </div>
-                      <?php endif ?>
-                    </div>
-                  </form>
-                  <form method="post" action="<?= site_url('pendaftaran/biodata/uploadPembayaran') ?>" enctype="multipart/form-data">
-                    <h4>Upload Bukti Pembayaran</h4>
-                    <input type="hidden" name="tagihan_id" value="<?= $tagihan->id ?>">
-                    <input type="hidden" name="id" value="<?= $user->id ?>">
-                    <input type="hidden" name="user_id" value="<?= $user->user_id ?>">
-                    <div class="form-group">
-                      <label for="jumlah">Jumlah Bayar</label>
-                      <input id="jumlah" class="form-control" type="number" name="jumlah" readonly value="<?= $tagihan->jumlah_tagihan ?>">
-                    </div>
-                    <div class="form-group">
-                      <label for="bukti_pembayaran">Foto Bukti Pembayaran Pendaftaran</label>
-                      <input id="bukti_pembayaran" class="form-control" type="file" name="bukti_pembayaran">
-                    </div>
-                    <button type="submit" class="btn btn-primary mt-3 ml-auto">Submit</button>
-                  </form>
-                <?php endif ?>
+                
               </div>
             </div>
           </div>

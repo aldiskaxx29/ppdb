@@ -26,6 +26,7 @@
                       <th>Email</th>
                       <th>Jurusan</th>
                       <th>Konfirmasi</th>
+                      <!-- <th>NO Telpon</th> -->
                       <th>Action</th>
                     </tr>
                   </thead>
@@ -39,9 +40,9 @@
                         <td>
                           <small style="cursor: pointer;" class="badge badge-warning" data-toggle="modal" data-target="#modalKonfirmasi-<?= $cs->id ?>">Confirm</small>
                         </td>
-
+                        <!-- <td><?= $cs->no_telpon  ?></td>-->                        
                         <td>
-                          <a href="" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
+                          <a href="<?= base_url('admin/konfirmasipendaftaran/hapus/' . $cs->id) ?>" class="btn btn-danger btn-sm" onclick="return confirm('Yakin Ingin Di Hapus?')"><i class="fas fa-trash"></i></a>
                           <a href="<?= site_url('admin/konfirmasipendaftaran/detail/' . $cs->id) ?>" class="btn btn-info btn-sm"><i class="fas fa-eye"></i></a>
                         </td>
                       </tr>

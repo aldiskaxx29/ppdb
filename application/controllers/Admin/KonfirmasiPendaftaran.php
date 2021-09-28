@@ -27,7 +27,7 @@ class KonfirmasiPendaftaran extends CI_Controller
 	{
 		$data = [
 			'title' => 'Detail User',
-			'user'  => $this->user->detail($id),
+			'user'  => $this->m_user->detail($id),
 			'view'  => 'admin/konfirmasipendaftaran/detail'
 		];
 		$this->load->view('template_admin/app', $data);
@@ -46,6 +46,13 @@ class KonfirmasiPendaftaran extends CI_Controller
 		$siswa = $this->siswa->detail($id);
 		$this->m_user->update($id, ['siswa_id' => $siswa->id, 'kelas_id' => $this->input->post('kelas_id'), 'status' => 1, 'role_id' => 3]);
 		$this->session->set_flashdata('success', 'Konfirmasi User Berhasil');
+		redirect(site_url('admin/konfirmasipendaftaran'), 'refresh');
+	}
+
+	public function hapus($id){
+		// $where = ['id' => $id];
+		$this->m_user->delete($id);
+		$this->session->set_flashdata('success','Data Berhasil Hapus');
 		redirect(site_url('admin/konfirmasipendaftaran'), 'refresh');
 	}
 }

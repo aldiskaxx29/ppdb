@@ -22,10 +22,10 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            <!-- <tr>
                                 <td>NIS</td>
                                 <td>: <?php echo $user->nis ? $user->nis : '-' ?></td>
-                            </tr>
+                            </tr> -->
                             <tr>
                                 <td>NISN</td>
                                 <td>: <?php echo $user->nisn ? $user->nisn : '-' ?></td>
@@ -52,7 +52,10 @@
                             </tr>
                             <tr>
                                 <td>No Telepon</td>
-                                <td>: <?php echo $user->no_telpon ?></td>
+
+                                <td>: <?php echo $user->no_telpon ?> 
+                                    <a href="https://api.whatsapp.com/send?phone=<?= $user->no_telpon ?>"  target="_blank" class="btn btn-sm btn-success"><i class="far fa-comment-dots"></i></a>
+                                </td>
                             </tr>
                             <tr>
                                 <td>Ijazah</td>

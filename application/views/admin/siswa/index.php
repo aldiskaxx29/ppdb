@@ -31,9 +31,10 @@
                                   <tr>
                                       <th>No</th>
                                       <th>Nama</th>
+                                      <th>Nisn</th>
                                       <th>Email</th>
                                       <th>Tanggal Di Terima</th>
-                                      <th>Kode Pembayaran</th>
+                                      <!-- <th>Kode Pembayaran</th> -->
                                       <th>Action</th>
                                   </tr>
                               </thead>
@@ -42,9 +43,10 @@
                                       <tr>
                                           <td><?= $index + 1 ?></td>
                                           <td><?= $item->nama ?></td>
+                                          <td><?= $item->nisn ?></td>
                                           <td><?= $item->email ?></td>
                                           <td><?= $item->tanggal_diterima ?></td>
-                                          <td><?= $item->kode_siswa ?></td>
+                                          <!-- <td><?= $item->kode_siswa ?></td> -->
                                           <td>
                                               <button class="btn btn-danger btn-sm" onclick="return confirm('Yakin Mau Di Hapus') ? window.location.href = '<?= site_url('admin/siswa/delete/' . $item->id) ?>' : ''"><i class="fas fa-trash"></i></button>
                                               <a href="<?= site_url('admin/siswa/edit/' . $item->id) ?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>

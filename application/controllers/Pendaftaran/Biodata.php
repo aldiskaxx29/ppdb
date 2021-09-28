@@ -55,11 +55,16 @@ class Biodata extends CI_Controller
 			$no_hp     	= $this->input->post('no_telpon');
 			$alamat 	= $this->input->post('alamat');
 			$email 		= $this->input->post('email');
-			$upload_ijazah = $_FILES['upload_ijazah']['name'];
-			$upload_skhun = $_FILES['upload_skhun']['name'];
-			$upload_kk = $_FILES['upload_kk']['name'];
-			$upload_akte = $_FILES['upload_akte']['name'];
+			$upload_ijazah 	= $_FILES['upload_ijazah']['name'];
+			$upload_skhun 	= $_FILES['upload_skhun']['name'];
+			$upload_kk 		= $_FILES['upload_kk']['name'];
+			$upload_akte 	= $_FILES['upload_akte']['name'];
 			$upload_ktp_ortu = $_FILES['upload_ktp_ortu']['name'];
+			// var_dump($upload_ijazah, $upload_skhun);die;
+
+
+
+
 			// tambahan file upload aldi
 			if ($upload_ijazah) {
 				$config['file_name'] = date('YmdHis') . $upload_ijazah;
@@ -73,8 +78,10 @@ class Biodata extends CI_Controller
 					echo 'Upload Ijazah Gagal';
 				} else {
 					$new_ijazah = $this->upload->data('file_name');
+					// $this->db->set('upload_ijazah', $new_ijazah);
 				}
 			}
+
 			if ($upload_skhun) {
 				$config['file_name'] = date('YmdHis') . $upload_skhun;
 				$config['upload_path'] = './assets/img/skhun/';
@@ -87,8 +94,10 @@ class Biodata extends CI_Controller
 					echo 'Upload Skhun Gagal';
 				} else {
 					$new_skhun = $this->upload->data('file_name');
+					// $this->db->set('upload_skhun', $new_skhun);
 				}
 			}
+
 			if ($upload_kk) {
 				$config['file_name'] = date('YmdHis') . $upload_kk;
 				$config['upload_path'] = './assets/img/kk/';
@@ -101,8 +110,10 @@ class Biodata extends CI_Controller
 					echo 'Upload KK Gagal';
 				} else {
 					$new_kk = $this->upload->data('file_name');
+					$this->db->set('upload_kk', $new_kk);
 				}
 			}
+
 			if ($upload_akte) {
 				$config['file_name'] = date('YmdHis') . $upload_akte;
 				$config['upload_path'] = './assets/img/akte/';
@@ -115,6 +126,7 @@ class Biodata extends CI_Controller
 					echo 'Upload Akte Gagal';
 				} else {
 					$new_akte = $this->upload->data('file_name');
+					$this->db->set('upload_akte', $new_akte);
 				}
 			}
 			if ($upload_ktp_ortu) {
@@ -129,9 +141,10 @@ class Biodata extends CI_Controller
 					echo 'Upload Ktp Ortu Gagal';
 				} else {
 					$new_ktp_ortu = $this->upload->data('file_name');
+					$this->db->set('upload_ktp_ortu', $new_ktp_ortu);
 				}
 			}
-
+// var_dump($new_ijazah, $new_skhun);die;
 
 
 			$pendaftaran = [
@@ -145,13 +158,11 @@ class Biodata extends CI_Controller
 				'alamat'           => $alamat,
 				'kode_siswa'       => strtoupper(random_string('alnum', 10)),
 				'status'           => 0,
-				'upload_ijazah'	   => $new_ijazah,
-				'upload_skhun'	   => $new_skhun,
-				'upload_kk'		   => $new_kk,
-				'upload_akte'	   => $new_akte,
-				'upload_ktp_ortu'  => $new_ktp_ortu,
-
-
+				// 'upload_ijazah'	   => $new_ijazah,
+				// 'upload_skhun'	   => $new_skhun,
+				// 'upload_kk'		   => $new_kk,
+				// 'upload_akte'	   => $new_akte,
+				// 'upload_ktp_ortu'  => $new_ktp_ortu,
 			];
 			// var_dump($pendaftaran);die;
 			$this->m_pendaftaran->insert($pendaftaran);

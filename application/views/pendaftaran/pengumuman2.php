@@ -15,7 +15,7 @@
               <div class="card-body">
                 <div class="alert alert-success">
                   <div class="alert alert-success" role="alert">
-                    <h4 class="alert-heading">Selamat Anda Lulus</h4>
+                    <h4 class="alert-heading">Selamat Biodata Anda Berhasil Di Input</h4>
                     <p>Tunggu konfirmasi selanjutnya dari admin</p>
                     <hr>
                     <p class="mb-0"><?= date('Y/m/d') ?></p>

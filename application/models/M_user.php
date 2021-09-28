@@ -33,7 +33,7 @@ class M_user extends CI_Model
 
     public function siswa()
     {
-        $this->db->select('tb_user.*, tb_pendaftaran.kode_siswa, tb_siswa.tanggal_diterima, tb_siswa.tahun_masuk, tb_siswa.tahun_keluar, tb_user.orang_tua_id, tb_user.email, tb_orang_tua.nama_ortu, tb_orang_tua.pendidikan, tb_orang_tua.pekerjaan, tb_jurusan.nama_jurusan');
+        $this->db->select('tb_user.*, tb_pendaftaran.kode_siswa, tb_pendaftaran.nisn, tb_siswa.tanggal_diterima, tb_siswa.tahun_masuk, tb_siswa.tahun_keluar, tb_user.orang_tua_id, tb_user.email, tb_orang_tua.nama_ortu, tb_orang_tua.pendidikan, tb_orang_tua.pekerjaan, tb_jurusan.nama_jurusan');
         $this->db->join('tb_pendaftaran', 'tb_pendaftaran.id = tb_user.pendaftaran_id', 'left');
         $this->db->join('tb_jurusan', 'tb_jurusan.id = tb_user.kelas_id', 'left');
         $this->db->join('tb_orang_tua', 'tb_orang_tua.id = tb_user.orang_tua_id', 'left');
@@ -56,6 +56,7 @@ class M_user extends CI_Model
     {
         $this->db->select('tb_user.*, tb_jurusan.nama_jurusan');
         $this->db->join('tb_jurusan', 'tb_jurusan.id = tb_user.jurusan_id', 'left');
+        // $this->db->join('tb_pendaftaran', 'tb_pendaftaran.id = tb_user.pendaftaran_id', 'left');
         return $this->db->get_where($this->table, ['role_id' => 2, 'status' => 0])->result();
     }
 
