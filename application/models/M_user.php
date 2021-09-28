@@ -33,11 +33,12 @@ class M_user extends CI_Model
 
     public function siswa()
     {
-        $this->db->select('tb_user.*, tb_pendaftaran.kode_siswa, tb_pendaftaran.nisn, tb_siswa.tanggal_diterima, tb_siswa.tahun_masuk, tb_siswa.tahun_keluar, tb_user.orang_tua_id, tb_user.email, tb_orang_tua.nama_ortu, tb_orang_tua.pendidikan, tb_orang_tua.pekerjaan, tb_jurusan.nama_jurusan');
+        $this->db->select('tb_user.*, tb_pendaftaran.kode_siswa, tb_pendaftaran.nisn, tb_siswa.tanggal_diterima, tb_siswa.tahun_masuk, tb_siswa.tahun_keluar, tb_user.orang_tua_id, tb_user.email, tb_orang_tua.nama_ortu, tb_orang_tua.pendidikan, tb_orang_tua.pekerjaan, tb_jurusan.nama_jurusan, tb_kelas.grade');
         $this->db->join('tb_pendaftaran', 'tb_pendaftaran.id = tb_user.pendaftaran_id', 'left');
         $this->db->join('tb_jurusan', 'tb_jurusan.id = tb_user.kelas_id', 'left');
         $this->db->join('tb_orang_tua', 'tb_orang_tua.id = tb_user.orang_tua_id', 'left');
         $this->db->join('tb_siswa', 'tb_siswa.id = tb_user.siswa_id', 'left');
+        $this->db->join('tb_kelas', 'tb_kelas.id = tb_user.kelas_id', 'left');
         return $this->db->get_where($this->table, ['role_id' => 3])->result();
     }
 
