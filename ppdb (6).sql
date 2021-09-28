@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 28, 2021 at 08:34 AM
+-- Generation Time: Sep 28, 2021 at 09:07 AM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.6
 
@@ -154,7 +154,8 @@ INSERT INTO `tb_orang_tua` (`id`, `nama_ortu`, `pendidikan`, `pekerjaan`, `user_
 (5, 'irwan', 'sd', 'buruh ', 15),
 (6, 'irwan', 'sd', 'buruh tani', 16),
 (7, 'irwan', 'sd', 'web developer', 17),
-(8, 'irwan', 'sd', 'buruh', 18);
+(8, 'irwan', 'sd', 'buruh', 18),
+(9, 'irwan', 'sd', 'buruh', 20);
 
 -- --------------------------------------------------------
 
@@ -222,7 +223,8 @@ INSERT INTO `tb_pendaftaran` (`id`, `nisn`, `nama`, `jenis_kelamin`, `tempat_lah
 (15, '2321312412', 'Spanduk', 'Laki-Laki', 'tangerang', '2021-09-27', 'islam', 'tanah abang', '0893663817', NULL, '20210920060641filter.png', '20210920060648pencarian.png', '20210920060654tanggal.png', '20210920060701peilbanir.png', '20210920060710Asset_1.png', 1, 'ZYMP8JFHJV', 0, '2021-09-20 11:06:29'),
 (16, '2321312412', 'alda', 'Laki-Laki', 'tangerang', '2021-09-26', 'islam', 'tanah abang', '6283852545114', '20210925020753Asset_10.png', '20210925020753Asset_101.png', '20210925020753Asset_102.png', '20210925020753Asset_103.png', '20210925020753Asset_104.png', NULL, NULL, '5QNBDJPTBQ', 0, '2021-09-25 07:07:53'),
 (17, '2321312412', 'aaa', 'Laki-Laki', 'tangerang', '2021-09-27', 'islam', 'tanah merah', '89366381700', '20210926151700Asset_10.png', '20210926151700Asset_101.png', '20210926151700Asset_102.png', '20210926151700Asset_103.png', '20210926151700Asset_104.png', NULL, NULL, 'ISZB4WCDLP', 0, '2021-09-26 20:17:01'),
-(18, '12345678', 'tofik', 'Laki-Laki', 'tangerang', '2021-09-01', 'islam', 'tanah merah', '6283852545114', '20210927094322WhatsApp_Image_2021-09-20_at_11_40_4', '20210927094322WhatsApp_Image_2021-09-20_at_11_40_4', '20210927094322WhatsApp_Image_2021-09-20_at_11_40_422.jpeg', '20210927094322WhatsApp_Image_2021-09-20_at_11_40_423.jpeg', '20210927094322WhatsApp_Image_2021-09-20_at_11_40_424.jpeg', NULL, NULL, 'D0FR9SLZMA', 0, '2021-09-27 14:43:22');
+(18, '12345678', 'tofik', 'Laki-Laki', 'tangerang', '2021-09-01', 'islam', 'tanah merah', '6283852545114', '20210927094322WhatsApp_Image_2021-09-20_at_11_40_4', '20210927094322WhatsApp_Image_2021-09-20_at_11_40_4', '20210927094322WhatsApp_Image_2021-09-20_at_11_40_422.jpeg', '20210927094322WhatsApp_Image_2021-09-20_at_11_40_423.jpeg', '20210927094322WhatsApp_Image_2021-09-20_at_11_40_424.jpeg', NULL, NULL, 'D0FR9SLZMA', 0, '2021-09-27 14:43:22'),
+(19, '12345678', 'faris', 'Laki-Laki', 'tangerang', '2021-09-28', 'islam', 'tanah merah', '6283852545114', NULL, NULL, '20210928090506LOGO_PT2.png', '20210928090506LOGO_PT3.png', '20210928090506LOGO_PT4.png', NULL, NULL, 'R6LCYNDT8U', 0, '2021-09-28 14:05:06');
 
 -- --------------------------------------------------------
 
@@ -254,7 +256,8 @@ INSERT INTO `tb_siswa` (`id`, `tanggal_diterima`, `tahun_masuk`, `tahun_keluar`,
 (11, '2021-09-20', '2021', NULL, 15),
 (12, '2021-09-25', '2021', NULL, 16),
 (13, '2021-09-26', '2021', NULL, 17),
-(14, '2021-09-27', '2021', NULL, 18);
+(14, '2021-09-27', '2021', NULL, 18),
+(15, '2021-09-28', '2021', NULL, 20);
 
 -- --------------------------------------------------------
 
@@ -316,7 +319,8 @@ INSERT INTO `tb_user` (`id`, `pendaftaran_id`, `orang_tua_id`, `siswa_id`, `juru
 (15, 15, 5, 10, 2, 5, 'Spanduk', 'lutfi@gmail.com', '$2y$10$APTNwkMU37sSGs57CzNrSO3TWkRCjT4iMMiZvQKLzsZN6R3Din0dO', 3, 1, '2021-09-20 11:06:29'),
 (16, 16, 6, 12, 2, 0, 'alda', 'alda@gmail.com', '$2y$10$NwtPkZX/zyXTM9uOlyQuV.JeMfCRPRQeZJyCZeFo1fZxE6cv5PJkW', 2, 0, '2021-09-25 07:07:53'),
 (17, 17, 7, 13, 2, 0, 'aaa', 'aaa@gmail.com', '$2y$10$wbbqwo4QBQjYGmmVUJNIn.FvceqFt8CJsaCwirvo2xb9xIdS29nia', 2, 0, '2021-09-26 20:17:01'),
-(19, 0, 0, 0, 0, 0, 'Kepsek', 'kepsek@gmail.com', '$2y$10$026l9Fqv.dhvZFMDWup80eaDVoot59PRI013tK/LCSJ97yBhdWiny', 4, 1, '2021-09-28 13:25:56');
+(19, 0, 0, 0, 0, 0, 'Kepsek', 'kepsek@gmail.com', '$2y$10$026l9Fqv.dhvZFMDWup80eaDVoot59PRI013tK/LCSJ97yBhdWiny', 4, 1, '2021-09-28 13:25:56'),
+(20, 19, 9, 15, 2, 0, 'faris', 'faris@gmail.com', '$2y$10$Sus4PzSgL090wRh6nGSm7OlcvL1joyb9m3zMsi/v0SHKjnaHSEpiC', 2, 0, '2021-09-28 14:05:06');
 
 --
 -- Indexes for dumped tables
@@ -436,7 +440,7 @@ ALTER TABLE `tb_kelas`
 -- AUTO_INCREMENT for table `tb_orang_tua`
 --
 ALTER TABLE `tb_orang_tua`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `tb_pembayaran`
@@ -448,13 +452,13 @@ ALTER TABLE `tb_pembayaran`
 -- AUTO_INCREMENT for table `tb_pendaftaran`
 --
 ALTER TABLE `tb_pendaftaran`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `tb_siswa`
 --
 ALTER TABLE `tb_siswa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `tb_tagihan`
@@ -466,7 +470,7 @@ ALTER TABLE `tb_tagihan`
 -- AUTO_INCREMENT for table `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- Constraints for dumped tables
